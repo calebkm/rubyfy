@@ -1,33 +1,25 @@
 QUnit.test('Testing Rubyfy `Array#any`: ', function(assert) {
-  var array = [1, 2, 3]
-  var empty = []
-  assert.ok(Rubyfy.any(array))
-  assert.notOk(Rubyfy.any(empty))
+  assert.ok(Rubyfy.any([1, 2, 3]))
+  assert.notOk(Rubyfy.any([]))
 })
 
 QUnit.test('Testing Rubyfy `Array#compact`: ', function(assert) {
-  var input = [1, null, 2, undefined, 3]
-  var length = 3
-  assert.equal(Rubyfy.compact(input).length, length)
+  var arr = [1, null, 2, undefined, 3]
+  assert.equal(arr.length, 5)
+  assert.equal(Rubyfy.compact(arr).length, 3)
 })
 
 QUnit.test('Testing Rubyfy `Array#is_empty`: ', function(assert) {
-  var array = [1, 2, 3]
-  var empty = []
-  assert.notOk(Rubyfy.is_empty(array))
-  assert.ok(Rubyfy.is_empty(empty))
+  assert.notOk(Rubyfy.is_empty([1, 2, 3]))
+  assert.ok(Rubyfy.is_empty([]))
 })
 
 QUnit.test('Testing Rubyfy `Array#first`: ', function(assert) {
-  var array = [1, 2, 3]
-  var first = 1
-  assert.equal(Rubyfy.first(array), first)
+  assert.equal(Rubyfy.first([1, 2, 3]), 1)
 })
 
 QUnit.test('Testing Rubyfy `Array#last`: ', function(assert) {
-  var array = [1, 2, 3]
-  var last = 3
-  assert.equal(Rubyfy.last(array), last)
+  assert.equal(Rubyfy.last([1, 2, 3]), 3)
 })
 
 QUnit.test('Testing Rubyfy `String#capitalize`: ', function(assert) {
@@ -71,7 +63,7 @@ QUnit.test('Testing Rubyfy `Object#keys`: ', function(assert) {
 })
 
 QUnit.test('Testing Rubyfy `Object#vals`: ', function(assert) {
-    var obj = {one: 1, two: 2, three: 3}
+  var obj = {one: 1, two: 2, three: 3}
   assert.equal(Rubyfy.vals(obj).length, 3)
   assert.equal(Rubyfy.vals(obj).first(), 1)
   assert.equal(Rubyfy.vals(obj).last(), 3)

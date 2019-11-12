@@ -37,7 +37,7 @@ Similar to Ruby [`Array#any?`](https://apidock.com/ruby/Enumerable/any%3F)
 ### `Array#compact`
 Similar to Ruby [`Array#compact`](https://apidock.com/ruby/Array/compact), removes `null` and `undefined` from an array:
 ```javascript
-['a', null, 'b', null, 'c', null].compact()
+['a', null, 'b', undefined, 'c'].compact()
 //=> ["a", "b", "c"]
 ```
 
