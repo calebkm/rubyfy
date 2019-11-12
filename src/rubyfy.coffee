@@ -14,35 +14,35 @@ Rubyfy.Object  = 'any is_empty keys vals'.split(' ')
 # Array --------------------------------------------
 #
 Rubyfy.compact = (arr) ->
-  if Rubyfy.has_func(arr, 'compact')
+  if Rubyfy.defined(arr, 'compact')
     arr.filter (i) -> i != null and i != undefined
 
 Rubyfy.first = (arr) ->
-  if Rubyfy.has_func(arr, 'first')
+  if Rubyfy.defined(arr, 'first')
     arr[0]
 
 Rubyfy.last = (arr) ->
-  if Rubyfy.has_func(arr, 'last')
+  if Rubyfy.defined(arr, 'last')
     arr[arr.length - 1]
 
 # Object -------------------------------------------
 #
 Rubyfy.keys = (obj) ->
-  if Rubyfy.has_func(obj, 'keys')
+  if Rubyfy.defined(obj, 'keys')
     Object.keys(obj)
 
 Rubyfy.vals = (obj) ->
-  if Rubyfy.has_func(obj, 'vals')
+  if Rubyfy.defined(obj, 'vals')
     Object.values(obj)
 
 # Array or Object ----------------------------------
 #
 Rubyfy.any = (arr_or_obj) ->
-  if Rubyfy.has_func(arr_or_obj, 'any')
+  if Rubyfy.defined(arr_or_obj, 'any')
     !Rubyfy.is_empty(arr_or_obj)
 
 Rubyfy.is_empty = (arr_or_obj) ->
-  if Rubyfy.has_func(arr_or_obj, 'is_empty')
+  if Rubyfy.defined(arr_or_obj, 'is_empty')
     if Rubyfy.is_array(arr_or_obj)
       Rubyfy.compact(arr_or_obj).length == 0
     else if Rubyfy.is_object(arr_or_obj)
@@ -51,20 +51,20 @@ Rubyfy.is_empty = (arr_or_obj) ->
 # String -------------------------------------------
 #
 Rubyfy.capitalize = (str) ->
-  if Rubyfy.has_func(str, 'capitalize')
+  if Rubyfy.defined(str, 'capitalize')
     str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 
 Rubyfy.downcase = (str) ->
-  if Rubyfy.has_func(str, 'downcase')
+  if Rubyfy.defined(str, 'downcase')
     str.toLowerCase()
 
 Rubyfy.is_blank = (str) ->
-  if Rubyfy.has_func(str, 'is_blank')
+  if Rubyfy.defined(str, 'is_blank')
     str.trim() == ''
 
 # Helpers ------------------------------------------
 #
-Rubyfy.has_func = (o, func) ->
+Rubyfy.defined = (o, func) ->
   class_of = Rubyfy.class_of(o)
   if class_of and Rubyfy[class_of] and Rubyfy[class_of].includes(func)
     true

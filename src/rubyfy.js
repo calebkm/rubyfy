@@ -1,7 +1,9 @@
-/*
- * This file was created by running 'rubyfy.coffee' through decafinate
- * https://github.com/decaffeinate/decaffeinate
- */
+// This file created by running rubyfy.coffee through decaffeinate
+//
+// Rubyfy - 0.1.0
+// 2019 Caleb Matthiesen
+// https://github.com/calebkm/rubyfy
+// ----------------------------------------------------
 if (!this.Rubyfy) { this.Rubyfy = {}; }
 
 Rubyfy.classes = 'Array Object String'.split(' ');
@@ -10,43 +12,43 @@ Rubyfy.String  = 'capitalize downcase is_blank'.split(' ');
 Rubyfy.Object  = 'any is_empty keys vals'.split(' ');
 
 Rubyfy.compact = function(arr) {
-  if (Rubyfy.has_func(arr, 'compact')) {
+  if (Rubyfy.defined(arr, 'compact')) {
     return arr.filter(i => (i !== null) && (i !== undefined));
   }
 };
 
 Rubyfy.first = function(arr) {
-  if (Rubyfy.has_func(arr, 'first')) {
+  if (Rubyfy.defined(arr, 'first')) {
     return arr[0];
   }
 };
 
 Rubyfy.last = function(arr) {
-  if (Rubyfy.has_func(arr, 'last')) {
+  if (Rubyfy.defined(arr, 'last')) {
     return arr[arr.length - 1];
   }
 };
 
 Rubyfy.keys = function(obj) {
-  if (Rubyfy.has_func(obj, 'keys')) {
+  if (Rubyfy.defined(obj, 'keys')) {
     return Object.keys(obj);
   }
 };
 
 Rubyfy.vals = function(obj) {
-  if (Rubyfy.has_func(obj, 'vals')) {
+  if (Rubyfy.defined(obj, 'vals')) {
     return Object.values(obj);
   }
 };
 
 Rubyfy.any = function(arr_or_obj) {
-  if (Rubyfy.has_func(arr_or_obj, 'any')) {
+  if (Rubyfy.defined(arr_or_obj, 'any')) {
     return !Rubyfy.is_empty(arr_or_obj);
   }
 };
 
 Rubyfy.is_empty = function(arr_or_obj) {
-  if (Rubyfy.has_func(arr_or_obj, 'is_empty')) {
+  if (Rubyfy.defined(arr_or_obj, 'is_empty')) {
     if (Rubyfy.is_array(arr_or_obj)) {
       return Rubyfy.compact(arr_or_obj).length === 0;
     } else if (Rubyfy.is_object(arr_or_obj)) {
@@ -56,24 +58,24 @@ Rubyfy.is_empty = function(arr_or_obj) {
 };
 
 Rubyfy.capitalize = function(str) {
-  if (Rubyfy.has_func(str, 'capitalize')) {
+  if (Rubyfy.defined(str, 'capitalize')) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   }
 };
 
 Rubyfy.downcase = function(str) {
-  if (Rubyfy.has_func(str, 'downcase')) {
+  if (Rubyfy.defined(str, 'downcase')) {
     return str.toLowerCase();
   }
 };
 
 Rubyfy.is_blank = function(str) {
-  if (Rubyfy.has_func(str, 'is_blank')) {
+  if (Rubyfy.defined(str, 'is_blank')) {
     return str.trim() === '';
   }
 };
 
-Rubyfy.has_func = function(o, func) {
+Rubyfy.defined = function(o, func) {
   const class_of = Rubyfy.class_of(o);
   if (class_of && Rubyfy[class_of] && Rubyfy[class_of].includes(func)) {
     return true;
