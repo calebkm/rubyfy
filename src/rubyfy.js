@@ -2,8 +2,9 @@
 //
 // Rubyfy - 0.1.0
 // 2019 Caleb Matthiesen
-// https://github.com/calebkm/rubyfy
-// ----------------------------------------------------
+// https://github.com/calebkm/rubyfy ------------------
+//
+
 if (!this.Rubyfy) { this.Rubyfy = {}; }
 
 Rubyfy.classes = 'Array Object String'.split(' ');
@@ -76,11 +77,15 @@ Rubyfy.is_blank = function(str) {
 };
 
 Rubyfy.defined = function(o, func) {
-  const class_of = Rubyfy.class_of(o);
-  if (class_of && Rubyfy[class_of] && Rubyfy[class_of].includes(func)) {
-    return true;
+  if ((o !== null) && (o !== undefined)) {
+    const class_of = Rubyfy.class_of(o);
+    if (class_of && Rubyfy[class_of] && Rubyfy[class_of].includes(func)) {
+      return true;
+    } else {
+      throw new Error(`Rubyfy does not define a function \`${func}\` for ${Rubyfy.capitalize(class_of)}`);
+    }
   } else {
-    return console.warn(`Whoops, Rubyfy does not define a function \`${func}\` on the ${Rubyfy.capitalize(class_of)} class.`);
+    throw new Error(`Cannot call Rubyfy \`${func}\` on ${o}`);
   }
 };
 

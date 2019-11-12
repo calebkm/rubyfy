@@ -1,7 +1,7 @@
 # Rubyfy - 0.1.0
 # 2019 Caleb Matthiesen
-# https://github.com/calebkm/rubyfy
-# ----------------------------------------------------
+# https://github.com/calebkm/rubyfy ------------------
+# 
 @Rubyfy or= {}
 
 # Setup --------------------------------------------
@@ -65,11 +65,14 @@ Rubyfy.is_blank = (str) ->
 # Helpers ------------------------------------------
 #
 Rubyfy.defined = (o, func) ->
-  class_of = Rubyfy.class_of(o)
-  if class_of and Rubyfy[class_of] and Rubyfy[class_of].includes(func)
-    true
+  if o != null and o != undefined
+    class_of = Rubyfy.class_of(o)
+    if class_of and Rubyfy[class_of] and Rubyfy[class_of].includes(func)
+      true
+    else
+      throw new Error("Rubyfy does not define a function `#{func}` for #{Rubyfy.capitalize(class_of)}")
   else
-    console.warn("Whoops, Rubyfy does not define a function `#{func}` on the #{Rubyfy.capitalize(class_of)} class.")
+    throw new Error("Cannot call Rubyfy `#{func}` on #{o}")
 
 Rubyfy.class_of = (t) ->
   if Rubyfy.is_array(t)
@@ -95,8 +98,8 @@ Rubyfy.is_object = (o) ->
   !Rubyfy.is_array(o) and \
   !Rubyfy.is_string(o)
 
-# Define `R` shorthand
-#-----------------------------------------------------
+# Define `R` shorthand -------------------------------
+#
 unless Rubyfy.no_r
   if typeof @R == 'undefined'
     @R = Rubyfy
@@ -104,8 +107,8 @@ unless Rubyfy.no_r
   else
     console.warn("Unable to assign Rubyfy shorthand `R` because it's already defined. You can still use `Rubyfy` explicitly.")
 
-# Add Rubyfy to prototypes
-# ----------------------------------------------------
+# Dynamically add prototypes -------------------------
+#
 unless Rubyfy.no_prototypes
   for klass in Rubyfy.classes
     do (klass) ->
