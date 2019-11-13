@@ -39,14 +39,14 @@ Rubyfy adds a `last` method to the Array prototype chain allowing you to:
 - [`String#is_blank`](#stringis_blank)
 
 ### `Array#any`
-Similar to Ruby [`Array#any?`](https://apidock.com/ruby/Enumerable/any%3F)
+Similar to Ruby [`Array#any?`](https://apidock.com/ruby/Enumerable/any%3F), returns `true` or `false`:
 ```javascript
 [1, 2, 3].any() //=> true
 [].any()        //=> false
 ```
 
 ### `Array#compact`
-Similar to Ruby [`Array#compact`](https://apidock.com/ruby/Array/compact), removes `null` and `undefined` from an array:
+Similar to Ruby [`Array#compact`](https://apidock.com/ruby/Array/compact), removes all `null` and `undefined` from an array:
 ```javascript
 ['a', null, 'b', undefined, 'c'].compact()
 //=> ["a", "b", "c"]
