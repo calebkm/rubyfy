@@ -48,30 +48,30 @@ Similar to Ruby [`Array#any?`](https://apidock.com/ruby/Enumerable/any%3F), retu
 ### `Array#compact`
 Similar to Ruby [`Array#compact`](https://apidock.com/ruby/Array/compact), removes all `null` and `undefined` from an array:
 ```javascript
-['a', null, 'b', undefined, 'c'].compact()
-//=> ["a", "b", "c"]
+['so', null, 'much', undefined, 'waste'].compact()
+//=> ["so", "much", "waste"]
 ```
 
 ### `Array#is_empty`
 Similar to Ruby [`Array#empty?`](https://apidock.com/ruby/Array/empty%3F), returns either `true` or `false`:
 ```javascript
 [].is_empty()        //=> true
-[1, 3, 3].is_empty() //=> false
+[1, 2, 3].is_empty() //=> false
 ```
 
 ### `Array#first`
 Similar to Ruby [`Array#first`](https://apidock.com/ruby/Array/first), returns the first item in an array:
 ```javascript
-[1, 2, 3].first()
-//=> 1
+['blue', 'red', 'green'].first()
+//=> "blue"
 ```
 NOTE: Unlike Ruby, `first` does _NOT_ take any arguments, so you can't do `[1, 2, 3].first(2)` for example.
 
 ### `Array#last`
 Similar to Ruby [`Array#last`](https://apidock.com/ruby/Array/last), returns the last item in an array:
 ```javascript
-[1, 2, 3].last()
-//=> 3
+['uno', 'dos', 'tres'].last()
+//=> "tres"
 ```
 NOTE: Unlike Ruby, `last` does _NOT_ take any arguments, so you can't do `[1, 2, 3].last(2)` for example.
 
@@ -79,7 +79,7 @@ NOTE: Unlike Ruby, `last` does _NOT_ take any arguments, so you can't do `[1, 2,
 ### `Object#any`
 Similar to Ruby [`Hash#any?`](https://apidock.com/ruby/Enumerable/any%3F), returns either `true` or `false`:
 ```javascript
-obj = {one: 1, two: 2}
+obj = {kingdom: 'Fungi', division: 'Basidiomycota'}
 obj.any()
 //=> true
 
@@ -95,47 +95,48 @@ obj = {}
 obj.is_empty()
 //=> true
 
-obj = {one: 1, two: 2}
+obj = {model: 'Mustang', horsepower: 480}
 obj.is_empty()
 //=> false
 ```
 
 ### `Object#keys`
-Similar to Ruby [`Hash#keys`](https://apidock.com/ruby/Hash/keys), returns the keys of the object as an array:
+Similar to Ruby [`Hash#keys`](https://apidock.com/ruby/Hash/keys), returns an array of the keys:
 ```javascript
-obj = {a: 100, b: 200, c: 300, d: 400 }
+obj = {we: 100, love: 200, ruby: 300}
 obj.keys()
-//=> ["a", "b", "c", "d"]
+//=> ["we", "love", "ruby"]
 ```
 
 ### `Object#vals`
-Similar to Ruby [`Hash#values`](https://apidock.com/ruby/Hash/values), returns the values of the object as an array:
+Similar to Ruby [`Hash#values`](https://apidock.com/ruby/Hash/values), returns an array of the values:
 ```javascript
-obj = {a: 100, b: 200, c: 300, d: 400}
+obj = {a: 'you', b: 'are', c: 'welcome', d: 'here'}
 obj.vals()
-//=> [100, 200, 300, 400]
+//=> ["you", "are", "welcome", "here"]
 ```
 
 ### `String#capitalize`
 Similar to Ruby [`String#capitalize`](https://apidock.com/ruby/String/capitalize), returns a string with the first letter capitalized and all others lowercased:
 ```javascript
-'hello there'.capitalize() //=> "Hello there"
-'HELLO THERE'.capitalize() //=> "Hello there"
+'not yelling'.capitalize() //=> "Not yelling"
+'NOT YELLING'.capitalize() //=> "Not yelling"
 '123ABC'.capitalize()      //=> "123abc"
 ```
 
 ### `String#downcase`
 Similar to Ruby [`String#downcase`](https://apidock.com/ruby/String/downcase), returns a string with all chars lowercase:
 ```javascript
-'hEllO'.downcase()
-//=> "hello"
+'WHISPER IN MY EAR'.downcase()
+//=> "whisper in my ear"
 ```
+**NOTE**: Yup, this is exactly the same as the built in JS `toLowerCase` method.
 
 ### `String#is_blank`
 Similar to Ruby [`String#blank?`](https://apidock.com/rails/Object/blank%3F), returns either `true` or `false`:
 ```javascript
 ''.is_blank()          //=> true
-'not blank'.is_blank() //=> false
+'Not Blank'.is_blank() //=> false
 ```
 
 ## The `R` Shorthand
