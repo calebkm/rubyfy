@@ -140,7 +140,7 @@ Similar to Ruby [`String#blank?`](https://apidock.com/rails/Object/blank%3F), re
 ```
 
 ## The `R` Shorthand
-Rubyfy also comes with an `R` shorthand that can be used instead of calling `Rubyfy`:
+Rubyfy also comes with a handy `R` shorthand that can be used in place of `Rubyfy`:
 ```javascript
 R.downcase('HELLO')      //=> 'hello'
 R.vals({a: 100, b: 200}) //=> [100, 200]
