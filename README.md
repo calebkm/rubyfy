@@ -6,32 +6,43 @@ If you're like me and love Ruby, you might miss some of the default class method
 ```ruby
 # Ruby
 ['one', 'dos', 'trois'].last
-=> "trois"
+#=> "trois"
 ```
 Nice, easy, simple, clear, obvious. In JavaScript we instead have to:
 ```javascript
 // Javascript
 arr = ['one', 'dos', 'trois']
 arr[arr.lenth - 1]
-=> "trois"
+//=> "trois"
 ```
 Rubyfy adds a `last` method to the Array prototype chain allowing you to:
 ```javascript
 // JavaScript
 ['one', 'dos', 'trois'].last()
-=> "trois"
+//=> "trois"
 ```
 
-## Usage
+## Methods
+- [`Array#any`](#arrayany)
+- [`Array#compact`](#arraycompact)
+- [`Array#is_empty`](#arrayis_empty)
+- [`Array#first`](#arrayfirst)
+- [`Array#last`](#arraylast)
+
+- [`Object#any`](#objectany)
+- [`Object#is_empty`](#objectis_empty)
+- [`Object#keys`](#objectkeys)
+- [`Object#vals`](#objectvals)
+
+- [`String#capitalize`](#stringcapitalize)
+- [`String#downcase`](#stringdowncase)
+- [`String#is_blank`](#stringis_blank)
 
 ### `Array#any`
 Similar to Ruby [`Array#any?`](https://apidock.com/ruby/Enumerable/any%3F)
 ```javascript
-[1, 2, 3].any()
-//=> true
-
-[].any()
-//=> false
+[1, 2, 3].any() //=> true
+[].any()        //=> false
 ```
 
 ### `Array#compact`
@@ -44,11 +55,8 @@ Similar to Ruby [`Array#compact`](https://apidock.com/ruby/Array/compact), remov
 ### `Array#is_empty`
 Similar to Ruby [`Array#empty?`](https://apidock.com/ruby/Array/empty%3F), returns either `true` or `false`:
 ```javascript
-[].is_empty()
-//=> true
-
-[1, 3, 3].is_empty()
-//=> false
+[].is_empty()        //=> true
+[1, 3, 3].is_empty() //=> false
 ```
 
 ### `Array#first`
@@ -126,11 +134,8 @@ Similar to Ruby [`String#downcase`](https://apidock.com/ruby/String/downcase), r
 ### `String#is_blank`
 Similar to Ruby [`String#blank?`](https://apidock.com/rails/Object/blank%3F), returns either `true` or `false`:
 ```javascript
-''.is_blank()
-//=> true
-
-'not blank'.is_blank()
-//=> false
+''.is_blank()          //=> true
+'not blank'.is_blank() //=> false
 ```
 
 ## The `R` Shorthand
