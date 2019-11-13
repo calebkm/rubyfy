@@ -117,7 +117,7 @@ obj.vals()
 ```
 
 ### `String#capitalize`
-Similar to Ruby [`String#capitalize`](https://apidock.com/ruby/String/capitalize), returns a string with the first letter capitalized and all others lowercase.
+Similar to Ruby [`String#capitalize`](https://apidock.com/ruby/String/capitalize), returns a string with the first letter capitalized and all others lowercased:
 ```javascript
 'hello there'.capitalize() //=> "Hello there"
 'HELLO THERE'.capitalize() //=> "Hello there"
@@ -166,7 +166,7 @@ Rubyfy.keys({a: 100, b: 200}) //=> ["a", "b"]
 ```
 
 ## More coming ... soon?
-You may be saying to yourself "wow, there are a whole bunch of methods in Ruby that I wish I had in JavaScript that aren't even _IN_ this gem" and you wouldn't be wrong. This gem is still very much a _WORK IN PROGRESS_. So far I've included some of the methods I really miss while working on my own JavaScript projects, but clearly the list above is not exhaustive. Help me add more by submitting a pull request with _your_ favorite methods!
+You may be saying to yourself "wow, there are a whole bunch of methods in Ruby that I wish I had in JavaScript that aren't even _IN_ this gem" and you wouldn't be wrong. Although the code here is tested and working, this gem is still very much a _WORK IN PROGRESS_ as far as adding methods go. So far I've included some of the things I really miss while coding on my own JavaScript projects, but clearly the list provided in `Rubyfy` is not nearly exhaustive. Help make Rubyfy more complete by submitting a pull request with _your_ favorite missing methods! (And how much do you miss `method_missing` amiright?!)
 
 ## License
-MIT - free and open for all. I'd love for you to contribue! 
+MIT - Free and open for all. Plz contribue! 
